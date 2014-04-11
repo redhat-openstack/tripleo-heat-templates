@@ -16,7 +16,7 @@ Resources:
     Type: AWS::AutoScaling::LaunchConfiguration
     Metadata:
       ironic:
-        db: mysql://ironic:unset@localhost/ironic
+        db: mysql://ironic:unset@127.0.0.1/ironic
         service-password:
           Ref: IronicPassword
         virtual_power_ssh_key:
@@ -25,7 +25,7 @@ Resources:
         compute_hostname: undercloud
         compute_driver: ironic.nova.virt.ironic.driver.IronicDriver
         compute_manager: ironic.nova.compute.manager.ClusteredComputeManager
-        db: mysql://nova:unset@localhost/nova
+        db: mysql://nova:unset@127.0.0.1/nova
         default_ephemeral_format: ext4
         host: 127.0.0.1
         metadata-proxy: false

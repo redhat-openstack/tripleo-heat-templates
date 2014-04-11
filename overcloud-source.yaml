@@ -314,7 +314,7 @@ Resources:
         public_interface_ip:
           Ref: NeutronPublicInterfaceIP
       cinder:
-        db: mysql://cinder:unset@localhost/cinder
+        db: mysql://cinder:unset@127.0.0.1/cinder
         volume_size_mb: '5000'
         service-password:
           Ref: CinderPassword
@@ -331,7 +331,7 @@ Resources:
       db-password: unset
       glance:
         backend: swift
-        db: mysql://glance:unset@localhost/glance
+        db: mysql://glance:unset@127.0.0.1/glance
         host:
           Fn::Select:
            - 0
@@ -355,7 +355,7 @@ Resources:
         admin_tenant_name: service
         admin_user: heat
         auth_encryption_key: unset___________
-        db: mysql://heat:unset@localhost/heat
+        db: mysql://heat:unset@127.0.0.1/heat
         stack_domain_admin_password: {Ref: HeatStackDomainAdminPassword}
         watch_server_url:
           Fn::Join:
@@ -405,7 +405,7 @@ Resources:
                 - networks
           - {Ref: CloudName}
       keystone:
-        db: mysql://keystone:unset@localhost/keystone
+        db: mysql://keystone:unset@127.0.0.1/keystone
         host:
           Fn::Select:
             - 0
@@ -444,19 +444,19 @@ Resources:
             Ref: NeutronPublicInterfaceDefaultRoute
           physical_bridge: br-ex
           tenant_network_type: gre
-        ovs_db: mysql://neutron:unset@localhost/ovs_neutron?charset=utf8
+        ovs_db: mysql://neutron:unset@127.0.0.1/ovs_neutron?charset=utf8
         service-password:
           Ref: NeutronPassword
         dnsmasq-options:
           Ref: NeutronDnsmasqOptions
       ceilometer:
-        db: mysql://ceilometer:unset@localhost/ceilometer
+        db: mysql://ceilometer:unset@127.0.0.1/ceilometer
         metering_secret: {Ref: CeilometerMeteringSecret}
         service-password:
           Ref: CeilometerPassword
       nova:
         compute_driver: libvirt.LibvirtDriver
-        db: mysql://nova:unset@localhost/nova
+        db: mysql://nova:unset@127.0.0.1/nova
         default_floating_pool:
           ext-net
         host:

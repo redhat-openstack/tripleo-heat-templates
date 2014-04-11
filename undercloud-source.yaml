@@ -130,14 +130,14 @@ Resources:
               - undercloud
               - networks
       cinder:
-        db: mysql://cinder:unset@localhost/cinder
+        db: mysql://cinder:unset@127.0.0.1/cinder
         volume_size_mb: '5000'
       completion-handle:
         Ref: notCompute0CompletionHandle
       db-password: unset
       glance:
         backend: file
-        db: mysql://glance:unset@localhost/glance
+        db: mysql://glance:unset@127.0.0.1/glance
         host: 127.0.0.1
         service-password:
           Ref: GlancePassword
@@ -151,7 +151,7 @@ Resources:
         admin_tenant_name: service
         admin_user: heat
         auth_encryption_key: unset___________
-        db: mysql://heat:unset@localhost/heat
+        db: mysql://heat:unset@127.0.0.1/heat
         stack_domain_admin_password: {Ref: HeatStackDomainAdminPassword}
         watch_server_url:
           Fn::Join:
@@ -201,11 +201,11 @@ Resources:
           stack_name:
             Ref: AWS::StackName
       keystone:
-        db: mysql://keystone:unset@localhost/keystone
+        db: mysql://keystone:unset@127.0.0.1/keystone
         host: 127.0.0.1
       neutron:
         host: 127.0.0.1
-        ovs_db: mysql://neutron:unset@localhost/ovs_neutron?charset=utf8
+        ovs_db: mysql://neutron:unset@127.0.0.1/ovs_neutron?charset=utf8
         ovs:
           public_interface:
             Ref: NeutronPublicInterface

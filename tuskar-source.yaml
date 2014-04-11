@@ -13,7 +13,7 @@ Resources:
     Metadata:
       OpenStack::Role: undercloudConfig
       tuskar:
-        db: mysql://tuskar:unset@localhost/tuskar?charset=utf8
+        db: mysql://tuskar:unset@127.0.0.1/tuskar?charset=utf8
         user: admin
         tenant_name: admin
         password: {Ref: AdminPassword}
