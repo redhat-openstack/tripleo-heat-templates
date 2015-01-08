@@ -273,6 +273,10 @@ parameters:
         The tunnel types for the Neutron tenant network. To specify multiple
         values, use a comma separated string, like so: 'gre,vxlan'
     type: string
+  NeutronL3HA:
+    default: 'False'
+    description: Wheter to enable l3-agent HA
+    type: string
   NovaComputeDriver:
     default: libvirt.LibvirtDriver
     type: string
@@ -420,6 +424,8 @@ resources:
             get_param: HypervisorNeutronPublicInterface
         NeutronBridgeMappings:
             get_param: NeutronBridgeMappings
+        NeutronL3HA:
+            get_param: NeutronL3HA
   NovaCompute0AllNodesDeployment:
     type: FileInclude
     Path: nova-compute-instance.yaml
@@ -578,6 +584,7 @@ resources:
           flat-networks: {get_param: NeutronFlatNetworks}
           host: {get_input: controller_virtual_ip}
           metadata_proxy_shared_secret: unset
+          l3_ha: {get_param: NeutronL3HA}
           ovs:
             enable_tunneling: 'True'
             local_ip:
