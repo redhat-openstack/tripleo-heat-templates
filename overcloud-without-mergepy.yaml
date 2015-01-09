@@ -111,6 +111,10 @@ parameters:
         The tunnel types for the Neutron tenant network. To specify multiple
         values, use a comma separated string, like so: 'gre,vxlan'
     type: string
+  NeutronL3HA:
+    default: 'False'
+    description: Wheter to enable l3-agent HA
+    type: string
   NovaPassword:
     default: unset
     description: The password for the nova service account, used by nova-api.
@@ -468,6 +472,7 @@ resources:
           NeutronPublicInterfaceRawDevice: {get_param: NeutronPublicInterfaceRawDevice}
           NeutronPassword: {get_param: NeutronPassword}
           NeutronDnsmasqOptions: {get_param: NeutronDnsmasqOptions}
+          NeutronL3HA: {get_param: NeutronL3HA}
           NeutronNetworkType: {get_param: NeutronNetworkType}
           NeutronTunnelTypes: {get_param: NeutronTunnelTypes}
           NovaPassword: {get_param: NovaPassword}
@@ -523,6 +528,7 @@ resources:
           NeutronPassword: {get_param: NeutronPassword}
           NeutronPhysicalBridge: {get_param: HypervisorNeutronPhysicalBridge}
           NeutronPublicInterface: {get_param: HypervisorNeutronPublicInterface}
+          NeutronL3HA: {get_param: NeutronL3HA}
           NovaApiHost: {get_attr: [ControlVirtualIP, fixed_ips, 0, ip_address]}
           NovaComputeDriver: {get_param: NovaComputeDriver}
           NovaComputeExtraConfig: {get_param: NovaComputeExtraConfig}

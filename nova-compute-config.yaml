@@ -35,6 +35,7 @@ resources:
           flat-networks: {get_input: neutron_flat_networks}
           host: {get_input: neutron_host}
           ovs_db: {get_input: neutron_dsn}
+          l3_ha: {get_input: neutron_l3_ha}
           ovs:
             local_ip: {get_input: neutron_local_ip}
             tenant_network_type: {get_input: neutron_tenant_network_type}

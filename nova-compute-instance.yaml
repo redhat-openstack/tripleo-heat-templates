@@ -144,6 +144,10 @@ parameters:
         The tunnel types for the Neutron tenant network. To specify multiple
         values, use a comma separated string, like so: 'gre,vxlan'
     type: string
+  NeutronL3HA:
+    default: 'False'
+    description: Wheter to enable l3-agent HA
+    type: string
   NovaApiHost:
     type: string
   NovaComputeDriver:
@@ -242,6 +246,7 @@ resources:
         neutron_physical_bridge: {get_param: NeutronPhysicalBridge}
         neutron_public_interface: {get_param: NeutronPublicInterface}
         neutron_password: {get_param: NeutronPassword}
+        neutron_l3_ha: {get_param: NeutronL3HA}
         admin_password: {get_param: AdminPassword}
         rabbit_host: {get_param: RabbitHost}
         rabbit_username: {get_param: RabbitUserName}
